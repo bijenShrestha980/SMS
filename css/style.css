@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+body {
+    font-family: 'Caveat', cursive !important;
+    background: #fafafa;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    animation: transitionIn 0.75s;
+}
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+button {
+    outline: none;
+}
+
+input {
+    outline: none;
+}
+
+marquee {
+    background: powderblue;
+}
+
+.input-btn {
+    background: none;
+    border: none;
+}
+
+.error-msg {
+    position: absolute;
+    top: 390px;
+    left: 710px;
+}
+
+
+/* Opening Section */
+
+.opening-header {
+    color: #00A1FF;
+}
+
+#admin_login {
+    font-size: 30px;
+    margin: 5rem;
+    padding: 5px 20px;
+    border: 3px dashed #66FF5E;
+    border-radius: 40px;
+    color: #66FF5E;
+    background: #fff;
+}
+
+#admin_login:hover {
+    background: #66FF5E;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+}
+
+#student_login {
+    font-size: 30px;
+    margin: 5rem;
+    padding: 5px 20px;
+    border: 3px dashed #00A1FF;
+    border-radius: 40px;
+    color: #00A1FF;
+    background: #fff;
+}
+
+#student_login:hover {
+    background: #00A1FF;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+}
+
+#teacher_login {
+    font-size: 30px;
+    margin: 5rem;
+    padding: 5px 20px;
+    border: 3px dashed #FF8800;
+    border-radius: 40px;
+    color: #FF8800;
+    background: #fff;
+}
+
+#teacher_login:hover {
+    background: #FF8800;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+}
+
+
+/* Circle Background */
+
+.circle {
+    height: 25px;
+    width: 25px;
+    background-color: #00A1FF;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: -2;
+    position: absolute;
+    top: -5px;
+}
+
+.circle2 {
+    height: 350px;
+    width: 350px;
+    background-color: #00A1FF;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: -2;
+    position: absolute;
+    top: -125px;
+    left: -120px;
+}
+
+.circle2:hover {
+    top: -105px;
+    left: -100px;
+    transition: 0.8s ease-in-out;
+}
+
+
+/* Admin Login Section */
+
+.home-btn {
+    background: no-repeat;
+    border: none;
+    font-size: 30px;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.admin-header {
+    color: #25d366;
+    margin-bottom: 2 5px;
+}
+
+.form-group-admin {
+    border: 3px dashed #66FF5E;
+    border-radius: 40px;
+    background: #25d366;
+    width: 700px;
+    height: auto;
+}
+
+.form-email-admin {
+    color: white;
+    font-size: 30px;
+    margin-top: 3rem;
+}
+
+#form_email_admin {
+    width: 440px;
+    height: 43px;
+    margin-left: 80px;
+    padding-left: 20px;
+    border: none;
+    border-radius: 40px;
+}
+
+.form-pass-admin {
+    color: white;
+    font-size: 30px;
+}
+
+#form_pass_admin {
+    width: 440px;
+    height: 43px;
+    margin-left: 50px;
+    padding-left: 20px;
+    border: none;
+    border-radius: 40px;
+}
+
+#form_submit_admin {
+    font-size: 25px;
+    margin: 1rem;
+    padding: 1px 20px;
+    border: 3px solid #66FF5E;
+    border-radius: 40px;
+    color: #66FF5E;
+    background: #fff;
+}
+
+#form_submit_admin:hover {
+    color: #fff;
+    background: #66FF5E;
+    transition: 0.3s ease-in-out;
+}
+
+
+/* Admin Dashboard */
+
+#header {
+    background: #25d366;
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
+    height: 40px;
+}
+
+.admin-dashboard-header {
+    left: -100px;
+    position: relative;
+}
+
+#sidebar {
+    height: 100vh;
+    background: #454141;
+    position: relative;
+    top: -8px;
+    left: -20px;
+    text-align: center;
+}
+
+.sidebar-items {
+    color: #fff;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.sidebar-items:hover {
+    color: #25d366;
+    font-size: 27px;
+    transition: 0.3s ease-in-out;
+}
+
+
+/* Admin Dashboard content */
+
+#td {
+    padding: 50px;
+}
+
+
+/* Student Login Section*/
+
+.stu-header {
+    color: #00A1FF;
+    margin-bottom: 2 5px;
+}
+
+.form-group-stu {
+    border: 3px dashed #00A1FF;
+    border-radius: 40px;
+    background: #4fbeff;
+    width: 700px;
+    height: auto;
+}
+
+.form-email-stu {
+    color: white;
+    font-size: 30px;
+    margin-top: 3rem;
+}
+
+#form_email_stu {
+    width: 440px;
+    height: 43px;
+    margin-left: 80px;
+    padding-left: 20px;
+    border: none;
+    border-radius: 40px;
+}
+
+.form-pass-stu {
+    color: white;
+    font-size: 30px;
+}
+
+#form_pass_stu {
+    width: 440px;
+    height: 43px;
+    margin-left: 50px;
+    padding-left: 20px;
+    border: none;
+    border-radius: 40px;
+}
+
+#form_submit_stu {
+    font-size: 25px;
+    margin: 1rem;
+    padding: 1px 20px;
+    border: 3px solid #00A1FF;
+    border-radius: 40px;
+    color: #00A1FF;
+    background: #fff;
+}
+
+#form_submit_stu:hover {
+    color: #fff;
+    background: #00A1FF;
+    transition: 0.3s ease-in-out;
+}
+
+
+/* Student Dashboard */
+
+#header {
+    background: #00A1FF;
+    text-align: center;
+    color: #fff;
+    font-size: 25px;
+    height: 40px;
+}
+
+
+/* Teacher Login Section */
+
+.teacher-header {
+    color: #FF8800;
+    margin-bottom: 2 5px;
+}
+
+.form-group-teacher {
+    border: 3px dashed #FF8800;
+    border-radius: 40px;
+    background: #ff9d2d;
+    width: 700px;
+    height: auto;
+}
+
+.form-email-teacher {
+    color: white;
+    font-size: 30px;
+    margin-top: 3rem;
+}
+
+#form_email_teacher {
+    width: 440px;
+    height: 43px;
+    margin-left: 80px;
+    padding-left: 20px;
+    border: none;
+    border-radius: 40px;
+}
+
+.form-pass-teacher {
+    color: white;
+    font-size: 30px;
+}
+
+#form_pass_teacher {
+    width: 440px;
+    height: 43px;
+    margin-left: 50px;
+    padding-left: 20px;
+    border: none;
+    border-radius: 40px;
+}
+
+#form_submit_teacher {
+    font-size: 25px;
+    margin: 1rem;
+    padding: 1px 20px;
+    border: 3px solid #FF8800;
+    border-radius: 40px;
+    color: #FF8800;
+    background: #fff;
+}
+
+#form_submit_teacher:hover {
+    color: #fff;
+    background: #FF8800;
+    transition: 0.3s ease-in-out;
+}
+
+
+/* modal */
+
+.close {
+    background: none;
+    border: none;
+}
+
+.modal-title {
+    position: relative;
+    top: 50%;
+    left: 45%;
+    color: red;
+}
