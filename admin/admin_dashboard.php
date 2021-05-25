@@ -52,14 +52,15 @@
 
                 <!-- #Code for search student---Start-->
                 <?php
-                if (isset($_POST['search_student'])) {
-                ?>
+                if(isset($_POST['search_student']))
+                {
+                    ?>
                     <center>
                         <h2><b>Student's details</b></h2><br><br>
                     </center>
-                    <form action="" method="post">
-                        <a href="#addnew" data-toggle="modal" class="btn btn-primary"><i class="fas fa-plus"></i> Add New</a></span>
+                                            <a href="#addnew" data-toggle="modal" class="btn btn-primary"><i class="fas fa-plus"></i> Add New</a></span>
                         <?php include('add_modal.php'); ?>
+                    <form action="" method="post">
                         <div class="search" style="float: right; position: relative; top: -35px;">
                             <b>Enter Roll No:</b> <input type="text" name="roll_no" placeholder="Search" style="border-radius: 40px; padding: 0 10px; height: 35px; width: 300px;">
                             <input type="submit" name="search_by_roll_no_for_search" value="Search" class="btn btn-secondary">
