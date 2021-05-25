@@ -6,8 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Student Dashboard</title>
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<?php
 	session_start();
 	$connection = mysqli_connect("localhost", "root", "");
@@ -27,7 +27,7 @@
 			Name:<?php echo $_SESSION['name']; ?>
 		</div>
 		<div class="col-md-2">
-			<a href="logout.php">Logout</a>
+			<a href="../logout.php">Logout</a>
 		</div>
 	</div>
 

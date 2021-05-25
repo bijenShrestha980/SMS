@@ -14,7 +14,7 @@
 
 <body>
 	<div class="container">
-		<button class="home-btn"><a href="login.php"><i class="fas fa-home"></i></a></button>
+        <a href="../index.php" class="home-btn" style="color: #25d366"><i class="fas fa-home"></i></a>
 		<center style="margin-top: 8rem;">
 			<h1 class="admin-header">Admin Login Page</h1>
 			<div class="form-group-admin">
