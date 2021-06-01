@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2021 at 06:25 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.1
+-- Generation Time: Apr 08, 2020 at 11:48 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -44,49 +45,30 @@ INSERT INTO `login` (`s_no`, `name`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notice`
---
-
-CREATE TABLE `notice` (
-  `id` int(11) NOT NULL,
-  `header` varchar(50) NOT NULL,
-  `notice` varchar(200) NOT NULL,
-  `img` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `students`
 --
 
 CREATE TABLE `students` (
-  `userid` int(11) NOT NULL,
+  `s_no` int(11) NOT NULL,
   `roll_no` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `guardians_name` varchar(100) NOT NULL,
+  `father_name` varchar(100) NOT NULL,
   `class` int(11) NOT NULL,
   `mobile` varchar(25) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `remark` varchar(250) NOT NULL,
-  `net` int(20) NOT NULL,
-  `webtech` int(11) NOT NULL,
-  `statistics` int(11) NOT NULL,
-  `numerical` int(11) NOT NULL
+  `remark` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`userid`, `roll_no`, `name`, `guardians_name`, `class`, `mobile`, `email`, `password`, `remark`, `net`, `webtech`, `statistics`, `numerical`) VALUES
-(3, 1, 'stu1', 'd3yo', 1, '03729640', 'stu1@gmail.com', 'stu1', '', 80, 100, 30, 77),
-(4, 4, 'stu4', 'iugfiu', 4, '907826398', 'stu4@gmail.com', 'stu4', '', 70, 90, 87, 28),
-(8, 2, 'stu2', 'dfyu', 2, '987654320', 'stu2@gmail.com', 'stu2', '', 82, 82, 71, 17),
-(9, 3, 'stu3', 'eiowgfo', 3, '9876543210', 'stu3@gmail.com', 'stu3', '', 84, 84, 24, 98),
-(10, 5, 'stu5', 'qwert', 10, '9876543210', 'stu5@gmail.com', 'stu5', '', 63, 36, 71, 87),
-(11, 6, 'stu6', 'qwer', 6, '9876543210', 'stu6@gmail.com', 'stu6', 'werty', 90, 97, 68, 79);
+INSERT INTO `students` (`s_no`, `roll_no`, `name`, `father_name`, `class`, `mobile`, `email`, `password`, `remark`) VALUES
+(5, 1002, 'Pramod Sharma', 'Sohan Sharma', 10, '659874512', 'pramod@gmail.com', 'pramod@123', 'He is an intelligent guy.'),
+(7, 1001, 'Vinod Meena', 'XYZ', 12, '1234567789', 'vinod@gmail.com', 'vinod@123', 'Fine'),
+(11, 1004, 'Mohan', 'Sohan', 12, '254587458', 'mohan@gmail.com', 'mohan@123', 'Great boy'),
+(12, 1004, 'Mohan', 'Sohan', 12, '254587458', 'mohan@gmail.com', 'mohan@123', 'Great boy');
 
 -- --------------------------------------------------------
 
@@ -99,19 +81,17 @@ CREATE TABLE `teachers` (
   `t_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `mobile` varchar(12) NOT NULL,
-  `courses` varchar(250) NOT NULL,
-  `email` varchar(200) DEFAULT NULL,
-  `password` varchar(50) NOT NULL
+  `courses` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `teachers`
 --
 
-INSERT INTO `teachers` (`s_no`, `t_id`, `name`, `mobile`, `courses`, `email`, `password`) VALUES
-(1, 101, 'teach1', '948465487', 'Scripting Language', 'teach1@gmail.com', 'teach1'),
-(2, 102, 'teach2', '9878452484', 'Operating System', 'teach2@gmail.com', 'teach2'),
-(103, 103, 'teach3', '7887451254', 'Numerical Method', 'teach3@gmail.com', 'teach3');
+INSERT INTO `teachers` (`s_no`, `t_id`, `name`, `mobile`, `courses`) VALUES
+(1, 101, 'Shivam Yadav', '5484654878', 'Physics, Maths'),
+(2, 102, 'Gopal Sharma', '9878452484', 'English, Reasoning, History'),
+(103, 103, 'Hariom sain', '7887451254', 'Politics, History, Biology ');
 
 --
 -- Indexes for dumped tables
@@ -124,16 +104,10 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`s_no`);
 
 --
--- Indexes for table `notice`
---
-ALTER TABLE `notice`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
-  ADD PRIMARY KEY (`userid`);
+  ADD PRIMARY KEY (`s_no`);
 
 --
 -- Indexes for table `teachers`
@@ -152,22 +126,16 @@ ALTER TABLE `login`
   MODIFY `s_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `notice`
---
-ALTER TABLE `notice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `s_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `s_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `s_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -35,7 +35,7 @@
         </div>
     </div>
     <!-- </center> -->
-    <marquee>Note:- This portal is open till 31 May 2021...Plz edit your information, if wrong.</marquee>
+    <marquee>Note:- This portal is open till 31 May 2022...Plz edit your information, if wrong.</marquee>
     <div class="row">
         <div class="col-md-3" id="sidebar">
             <form action="" method="post">
@@ -43,6 +43,7 @@
                 <h1 class="text-center py-5" style="color: #25d366;"> Dashboard</h1>
                 <input type="submit" class="input-btn sidebar-items" name="search_student" value="Search Student"><br>
                 <input type="submit" class="input-btn sidebar-items" name="add_new_student" value="Add New Student"><br>
+                <input type="submit" class="input-btn sidebar-items" name="result" value="Results"><br>
                 <input type="submit" class="input-btn sidebar-items" name="show teacher" value="Show Teachers"><br>
             </form>
         </div>
@@ -52,14 +53,13 @@
 
                 <!-- #Code for search student---Start-->
                 <?php
-                if(isset($_POST['search_student']))
-                {
-                    ?>
+                if (isset($_POST['search_student'])) {
+                ?>
                     <center>
                         <h2><b>Student's details</b></h2><br><br>
                     </center>
-                                            <a href="#addnew" data-toggle="modal" class="btn btn-primary"><i class="fas fa-plus"></i> Add New</a></span>
-                        <?php include('add_modal.php'); ?>
+                    <a href="#addnew" data-toggle="modal" class="btn btn-primary"><i class="fas fa-plus"></i> Add New</a></span>
+                    <?php include('add_modal.php'); ?>
                     <form action="" method="post">
                         <div class="search" style="float: right; position: relative; top: -35px;">
                             <b>Enter Roll No:</b> <input type="text" name="roll_no" placeholder="Search" style="border-radius: 40px; padding: 0 10px; height: 35px; width: 300px;">
@@ -163,106 +163,221 @@
                                 <textarea rows="3" cols="40" placeholder="Optional" name="remark" class="form-control" disabled><?php echo $row['remark'] ?></textarea>
                             </div>
                         </div>
-            </div>
-    <?php
+                <?php
                     }
                 }
-    ?>
-    <!-- Code For Add New Stuent -->
-    <?php
-    if (isset($_POST['add_new_student'])) {
-    ?>
-        <center>
-            <h4>Fill the given details</h4>
-        </center>
-        <form action="add_student.php" method="post">
-            <div class="row">
-                <div class="col-md-6">
-                    <input type="hidden" name="update_s_no" class="form-control">
-                    <label> Roll No: </label>
-                    <input type="text" name="roll_no" required class="form-control">
-                </div>
-                <div class="col-md-6">
-                    <label> Class: </label>
-                    <input type="text" name="class" required class="form-control">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <label> Name: </label>
-                    <input type="text" name="name" required class="form-control">
-                </div>
-                <div class="col-md-6">
-                    <label> Guardian's Name: </label>
-                    <input type="text" name="guardians_name" required class="form-control">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <label> Mobile: </label>
-                    <input type="text" name="mobile" required class="form-control">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <label> Email: </label>
-                    <input type="text" name="email" required class="form-control">
-                </div>
-                <div class="col-md-6">
-                    <label> Password: </label>
-                    <input type="password" name="password" required class="form-control">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <label> Remarks: </label>
-                    <textarea rows="3" cols="40" placeholder="Optional" name="remark" class="form-control"></textarea>
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col-md-12">
-                    <input type="submit" name="add" value="Add Student" class="btn btn-primary">
-                </div>
-            </div>
-        </form>
-    <?php
-    }
-    ?>
-    <?php
-    if (isset($_POST['show_teacher'])) {
-        $query = "select * from teachers";
-        $query_run = mysqli_query($connection, $query);
-    ?>
+                ?>
+                <!-- Code For Add New Stuent -->
+                <?php
+                if (isset($_POST['add_new_student'])) {
+                ?>
+                    <center>
+                        <h4>Fill the given details</h4>
+                    </center>
+                    <form action="add_student.php" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="hidden" name="update_s_no" class="form-control">
+                                <label> Roll No: </label>
+                                <input type="text" name="roll_no" required class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label> Class: </label>
+                                <input type="text" name="class" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label> Name: </label>
+                                <input type="text" name="name" required class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label> Guardian's Name: </label>
+                                <input type="text" name="guardians_name" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label> Mobile: </label>
+                                <input type="text" name="mobile" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label> Email: </label>
+                                <input type="text" name="email" required class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label> Password: </label>
+                                <input type="password" name="password" required class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label> Remarks: </label>
+                                <textarea rows="3" cols="40" placeholder="Optional" name="remark" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-md-12">
+                                <input type="submit" name="add" value="Add Student" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </form>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Mobile</th>
-                    <th scope="col">Course</th>
-                    <th scope="col">View Detail</th>
-                </tr>
-            </thead>
-            <?php
-            if ($query_run) {
-                foreach ($query_run as $row) {
-            ?>
-                    <tbody>
-                        <tr>
-                            <td><?php echo $row['t_id'] ?></td>
-                            <td><?php echo $row['name'] ?></td>
-                            <td><?php echo $row['mobile'] ?></td>
-                            <td><?php echo $row['courses'] ?></td>
-                            <td><a href="#">View</a></td>
-                        </tr>
-                    </tbody>
-        <?php
+            <!-- Code for Show Teachers -->
+                <?php
                 }
-            }
-        }
-        ?>
-        </table>
+                ?>
+                <?php
+                if (isset($_POST['show_teacher'])) {
+                    $query = "select * from teachers";
+                    $query_run = mysqli_query($connection, $query);
+                ?>
+                    <center>
+                        <h2><b>Teacher's details</b></h2><br><br>
+                    </center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Mobile</th>
+                                <th scope="col">Course</th>
+                                <th scope="col">View Detail</th>
+                            </tr>
+                        </thead>
+                        <?php
+                        if ($query_run) {
+                            foreach ($query_run as $row) {
+                        ?>
+                                <tbody>
+                                    <tr>
+                                        <td><?php echo $row['t_id'] ?></td>
+                                        <td><?php echo $row['name'] ?></td>
+                                        <td><?php echo $row['mobile'] ?></td>
+                                        <td><?php echo $row['courses'] ?></td>
+                                        <td><a href="#">View</a></td>
+                                    </tr>
+                                </tbody>
+                    <?php
+                            }
+                        }
+                    }
+                    ?>
+                    </table>
+
+            <!-- #Code for Result--Start-->
+				<?php
+				if (isset($_POST['result'])) {
+				?>
+					<center>
+						<h2><b>Student's Result</b></h2><br><br>
+					</center>
+					<form action="" method="post">
+						<div class="search" style="float: right; position: relative; top: -35px;">
+							<b>Enter Roll No:</b> <input type="text" name="roll_no" placeholder="Search" style="border-radius: 40px; padding: 0 10px; height: 35px; width: 300px;">
+							<input type="submit" name="search_by_roll_no_for_search_result" value="Search" class="btn btn-secondary">
+						</div>
+					</form>
+
+
+					<?php
+					$query = "select * from students";
+					$query_run = mysqli_query($connection, $query);
+					?>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col" class="text-center">Roll no.</th>
+								<th scope="col" class="text-center">Name</th>
+								<th scope="col" class="text-center">Class</th>
+								<th scope="col" class="text-center" style="color: red;">.Net</th>
+								<th scope="col" class="text-center" style="color: red;">WebTech</th>
+								<th scope="col" class="text-center" style="color: red;">Probality & Statistics</th>
+								<th scope="col" class="text-center" style="color: red;">Numerical Method</th>
+							</tr>
+						</thead>
+						<?php
+						include('../conn.php');
+						$query = mysqli_query($conn, "select * from `students`");
+						while ($row = mysqli_fetch_array($query)) {
+						?> <tbody>
+								<tr>
+									<td class="text-center"><?php echo $row['roll_no'] ?></th>
+									<td class="text-center"><?php echo $row['name'] ?></td>
+									<td class="text-center"><?php echo $row['class'] ?></td>
+									<td class="text-center" style="color: blue;"><?php echo $row['net'] ?></td>
+									<td class="text-center" style="color: blue;"><?php echo $row['webtech'] ?></td>
+									<td class="text-center" style="color: blue;"><?php echo $row['statistics'] ?></td>
+									<td class="text-center" style="color: blue;"><?php echo $row['numerical'] ?></td>
+								</tr>
+							</tbody>
+						<?php
+						}
+						?>
+					</table>
+
+
+					<?php
+				}
+				if (isset($_POST['search_by_roll_no_for_search_result'])) {
+					$query = "select * from students where roll_no = '$_POST[roll_no]'";
+					$query_run = mysqli_query($connection, $query);
+					while ($row = mysqli_fetch_assoc($query_run)) {
+					?>
+						<center>
+							<h1><?php echo $row['name'] ?></h1>
+						</center>
+						<div class="row">
+							<!-- <input type="hidden" name="update_s_no" value="<?php echo $row['s_no'] ?>" class="form-control" disabled> -->
+							<div class="col-md-6">
+								<label> Roll No: </label>
+								<input type="text" name="roll_no" disabled value="<?php echo $row['roll_no'] ?>" class="form-control">
+							</div>
+							<div class="col-md-6">
+								<label> Class: </label>
+								<input type="text" name="class" disabled value="<?php echo $row['class'] ?>" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8">
+								<label> Name: </label>
+								<input type="text" name="name" disabled value="<?php echo $row['name'] ?>" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label> .Net: </label>
+								<input type="text" name="net" disabled value="<?php echo $row['net'] ?>" class="form-control">
+							</div>
+							<div class="col-md-6">
+								<label> WebTech: </label>
+								<input type="text" name="webtech" disabled value="<?php echo $row['webtech'] ?>" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label> Probality & Statistics: </label>
+								<input type="text" name="statistics" disabled value="<?php echo $row['statistics'] ?>" class="form-control">
+							</div>
+							<div class="col-md-6">
+								<label> Numerical Method: </label>
+								<input type="text" name="numerical" disabled value="<?php echo $row['numerical'] ?>" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label> Remarks: </label>
+								<textarea rows="3" cols="40" placeholder="" name="remark" class="form-control" disabled><?php echo $row['remark'] ?></textarea>
+							</div>
+						</div>
+			</div>
+	<?php
+					}
+				}
+	?>
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

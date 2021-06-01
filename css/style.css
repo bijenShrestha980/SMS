@@ -8,6 +8,11 @@ body {
     animation: transitionIn 0.50s;
 }
 
+table td,
+.table th {
+    width: 10px;
+}
+
 @keyframes transitionIn {
     from {
         opacity: 0;
@@ -36,6 +41,14 @@ marquee {
     background: powderblue;
 }
 
+
+/* .search-btn {
+    position: absolute;
+    left: 345px;
+    height: 35px;
+    border-radius: 40px;
+} */
+
 .input-btn {
     background: none;
     border: none;
@@ -43,7 +56,7 @@ marquee {
 
 .error-msg {
     position: absolute;
-    top: 390px;
+    top: 430px;
     left: 710px;
 }
 

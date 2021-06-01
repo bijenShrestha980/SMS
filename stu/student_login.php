@@ -51,14 +51,14 @@
 						}
 						else{
 							?>
-							<span>Wrong Password !!</span>
+							<span class="error-msg">Wrong Password !!</span>
 							<?php
 						}
 					}
 					else
 					{
 						?>
-						<span>Wrong UserName !!</span>
+						<span class="error-msg">Wrong UserName !!</span>
 						<?php
 					}
 				}
