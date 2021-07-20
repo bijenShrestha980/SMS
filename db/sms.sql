@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2021 at 06:25 PM
+-- Generation Time: Jul 20, 2021 at 05:27 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -85,8 +85,7 @@ INSERT INTO `students` (`userid`, `roll_no`, `name`, `guardians_name`, `class`, 
 (4, 4, 'stu4', 'iugfiu', 4, '907826398', 'stu4@gmail.com', 'stu4', '', 70, 90, 87, 28),
 (8, 2, 'stu2', 'dfyu', 2, '987654320', 'stu2@gmail.com', 'stu2', '', 82, 82, 71, 17),
 (9, 3, 'stu3', 'eiowgfo', 3, '9876543210', 'stu3@gmail.com', 'stu3', '', 84, 84, 24, 98),
-(10, 5, 'stu5', 'qwert', 10, '9876543210', 'stu5@gmail.com', 'stu5', '', 63, 36, 71, 87),
-(11, 6, 'stu6', 'qwer', 6, '9876543210', 'stu6@gmail.com', 'stu6', 'werty', 90, 97, 68, 79);
+(10, 5, 'stu5', 'qwert', 10, '9876543210', 'stu5@gmail.com', 'stu5', '', 63, 36, 71, 87);
 
 -- --------------------------------------------------------
 
@@ -161,7 +160,7 @@ ALTER TABLE `notice`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `teachers`
