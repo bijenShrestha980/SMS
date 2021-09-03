@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <?php
-    session_start();
-    $connection = mysqli_connect("localhost", "root", "");
-    $db = mysqli_select_db($connection, "sms");
-    ?>
-</head>
+<?php include '../includes/header.php';?>
+<?php include '../includes/session.php';?>
 
 <body>
     <div class="row" id="header" style="background: #FF8800">
@@ -50,7 +35,7 @@
                 <!-- #Code for Post Result--Start-->
                 <?php
                 if (isset($_POST['post_result'])) {
-                ?>
+                    ?>
                     <center>
                         <h2><b>Student's Result</b></h2><br><br>
                     </center>
@@ -85,8 +70,8 @@
                         $query = mysqli_query($conn, "select * from `students`");
                         while ($row = mysqli_fetch_array($query)) {
                         ?> <tbody>
-                                <tr>
-                                    <td class="text-center"><?php echo $row['roll_no'] ?></th>
+                            <tr>
+                                <td class="text-center"><?php echo $row['roll_no'] ?></th>
                                     <td class="text-center"><?php echo $row['name'] ?></td>
                                     <td class="text-center"><?php echo $row['class'] ?></td>
                                     <td class="text-center" style="color: blue;"><?php echo $row['net'] ?></td>
@@ -99,7 +84,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        <?php
+                            <?php
                         }
                         ?>
                     </table>
@@ -111,7 +96,7 @@
                     $query = "select * from students where roll_no = '$_POST[roll_no]'";
                     $query_run = mysqli_query($connection, $query);
                     while ($row = mysqli_fetch_assoc($query_run)) {
-                    ?>
+                        ?>
                         <center>
                             <h1><?php echo $row['name'] ?></h1>
                         </center>
@@ -176,133 +161,130 @@
                                 <textarea rows="3" cols="40" placeholder="" name="remark" class="form-control" disabled><?php echo $row['remark'] ?></textarea>
                             </div>
                         </div>
-            </div>
-    <?php
-                    }
+                    </div>
+                    <?php
                 }
-    ?>
+            }
+            ?>
 
 
-    <?php
-    if (isset($_POST['show_detail'])) {
-        $query = "select * from teachers where email = '$_SESSION[email]'";
-        $query_run = mysqli_query($connection, $query);
-        while ($row = mysqli_fetch_assoc($query_run)) {
-    ?>
+            <?php
+            if (isset($_POST['show_detail'])) {
+                $query = "select * from teachers where email = '$_SESSION[email]'";
+                $query_run = mysqli_query($connection, $query);
+                while ($row = mysqli_fetch_assoc($query_run)) {
+                    ?>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <label style="float: left;">ID:</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label style="float: left;">ID:</label>
+                            <div style="height:10px;"></div>
+                            <input type="text" class="form-control" value="<?php echo $row['t_id'] ?>" disabled>
+                        </div>
+                        <div class="col-md-6">
+                            <label style="float: left;">Name:</label>
+                            <div style="height:10px;"></div>
+                            <input type="text" class="form-control" value="<?php echo $row['name']; ?>" disabled>
+                        </div>
+                    </div>
                     <div style="height:10px;"></div>
-                    <input type="text" class="form-control" value="<?php echo $row['t_id'] ?>" disabled>
-                </div>
-                <div class="col-md-6">
-                    <label style="float: left;">Name:</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label style="float: left;">Mobile:</label>
+                            <div style="height:10px;"></div>
+                            <input type="text" class="form-control" value="<?php echo $row['mobile']; ?>" disabled>
+                        </div>
+                    </div>
                     <div style="height:10px;"></div>
-                    <input type="text" class="form-control" value="<?php echo $row['name']; ?>" disabled>
-                </div>
-            </div>
-            <div style="height:10px;"></div>
-            <div class="row">
-                <div class="col-md-12">
-                    <label style="float: left;">Mobile:</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label style="float: left;">Course:</label>
+                            <div style="height:10px;"></div>
+                            <input type="text" class="form-control" value="<?php echo $row['courses']; ?>" disabled>
+                        </div>
+                    </div>
                     <div style="height:10px;"></div>
-                    <input type="text" class="form-control" value="<?php echo $row['mobile']; ?>" disabled>
-                </div>
-            </div>
-            <div style="height:10px;"></div>
-            <div class="row">
-                <div class="col-md-12">
-                    <label style="float: left;">Course:</label>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label style="float: left;">E-mail:</label>
+                            <div style="height:10px;"></div>
+                            <input type="text" class="form-control" value="<?php echo $row['email']; ?>" disabled>
+                        </div>
+                    </div>
                     <div style="height:10px;"></div>
-                    <input type="text" class="form-control" value="<?php echo $row['courses']; ?>" disabled>
-                </div>
-            </div>
-            <div style="height:10px;"></div>
-            <div class="row">
-                <div class="col-md-12">
-                    <label style="float: left;">E-mail:</label>
-                    <div style="height:10px;"></div>
-                    <input type="text" class="form-control" value="<?php echo $row['email']; ?>" disabled>
-                </div>
-            </div>
-            <div style="height:10px;"></div>
-            <div class="row">
-                <div class="col-md-12">
-                    <label style="float: left;">Password:</label>
-                    <div style="height:10px;"></div>
-                    <input type="text" class="form-control" value="<?php echo $row['password']; ?>" disabled>
-                </div>
-            </div>
-    <?php
-        }
-    }
-    ?>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label style="float: left;">Password:</label>
+                            <div style="height:10px;"></div>
+                            <input type="text" class="form-control" value="<?php echo $row['password']; ?>" disabled>
+                        </div>
+                    </div>
+                    <?php
+                }
+            }
+            ?>
 
-    <?php
-    if (isset($_POST['edit_detail'])) {
-        $query = "select * from teachers where email = '$_SESSION[email]'";
-        $query_run = mysqli_query($connection, $query);
-        while ($row = mysqli_fetch_assoc($query_run)) {
-    ?>
-            <form action="edit_teacher.php" method="post">
-                <div class="row">
-                    <div class="col-md-6">
-                        <label style="float: left;">ID:</label>
+            <?php
+            if (isset($_POST['edit_detail'])) {
+                $query = "select * from teachers where email = '$_SESSION[email]'";
+                $query_run = mysqli_query($connection, $query);
+                while ($row = mysqli_fetch_assoc($query_run)) {
+                    ?>
+                    <form action="edit_teacher.php" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label style="float: left;">ID:</label>
+                                <div style="height:10px;"></div>
+                                <input type="text" name="t_id" class="form-control" value="<?php echo $row['t_id'] ?>">
+                            </div>
+                            <div class="col-md-6">
+                                <label style="float: left;">Name:</label>
+                                <div style="height:10px;"></div>
+                                <input type="text" name="name" class="form-control" value="<?php echo $row['name']; ?>">
+                            </div>
+                        </div>
                         <div style="height:10px;"></div>
-                        <input type="text" name="t_id" class="form-control" value="<?php echo $row['t_id'] ?>">
-                    </div>
-                    <div class="col-md-6">
-                        <label style="float: left;">Name:</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label style="float: left;">Mobile:</label>
+                                <div style="height:10px;"></div>
+                                <input type="text" name="mobile" class="form-control" value="<?php echo $row['mobile']; ?>">
+                            </div>
+                        </div>
                         <div style="height:10px;"></div>
-                        <input type="text" name="name" class="form-control" value="<?php echo $row['name']; ?>">
-                    </div>
-                </div>
-                <div style="height:10px;"></div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label style="float: left;">Mobile:</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label style="float: left;">Course:</label>
+                                <div style="height:10px;"></div>
+                                <input type="text" name="courses" class="form-control" value="<?php echo $row['courses']; ?>">
+                            </div>
+                        </div>
                         <div style="height:10px;"></div>
-                        <input type="text" name="mobile" class="form-control" value="<?php echo $row['mobile']; ?>">
-                    </div>
-                </div>
-                <div style="height:10px;"></div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label style="float: left;">Course:</label>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label style="float: left;">E-mail:</label>
+                                <div style="height:10px;"></div>
+                                <input type="text" name="email" class="form-control" value="<?php echo $row['email']; ?>">
+                            </div>
+                        </div>
                         <div style="height:10px;"></div>
-                        <input type="text" name="courses" class="form-control" value="<?php echo $row['courses']; ?>">
-                    </div>
-                </div>
-                <div style="height:10px;"></div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label style="float: left;">E-mail:</label>
-                        <div style="height:10px;"></div>
-                        <input type="text" name="email" class="form-control" value="<?php echo $row['email']; ?>">
-                    </div>
-                </div>
-                <div style="height:10px;"></div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label style="float: left;">Password:</label>
-                        <div style="height:10px;"></div>
-                        <input type="text" name="password" class="form-control" value="<?php echo $row['password']; ?>">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary" style="float: right; margin-top: 10px; margin-right: 15px;"><i class="fas fa-save"></i> Save</button>
-            </form>
-    <?php
-        }
-    }
-    ?>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label style="float: left;">Password:</label>
+                                <div style="height:10px;"></div>
+                                <input type="text" name="password" class="form-control" value="<?php echo $row['password']; ?>">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="float: right; margin-top: 10px; margin-right: 15px;"><i class="fas fa-save"></i> Save</button>
+                    </form>
+                    <?php
+                }
+            }
+            ?>
         </div>
 
     </div>
-    </div>
+</div>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<?php include '../includes/script.php';?>
 </html>
