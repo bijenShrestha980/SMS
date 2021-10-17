@@ -227,7 +227,6 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Mobile</th>
                                     <th scope="col">Course</th>
-                                    <th scope="col">View Detail</th>
                                 </tr>
                             </thead>
                             <?php
@@ -240,7 +239,6 @@
                                             <td><?php echo $row['name'] ?></td>
                                             <td><?php echo $row['mobile'] ?></td>
                                             <td><?php echo $row['courses'] ?></td>
-                                            <td><a href="#">View</a></td>
                                         </tr>
                                     </tbody>
                                     <?php
